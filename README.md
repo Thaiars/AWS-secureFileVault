@@ -1,4 +1,4 @@
-# README.md
+Secure File Vault
 Dự án xây dựng ứng dụng lưu trữ file trên đám mây AWS với tính bảo mật cao.
 ## Tình trạng dự án: Đang phát triển
 
