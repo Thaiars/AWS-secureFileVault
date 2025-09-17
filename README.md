@@ -78,9 +78,9 @@ Tạo đường link để tải file lên
 ## Cách cài đặt và chạy
 
 ### Yêu cầu trước khi bắt đầu
-[x] Tài khoản AWS với quyền admin
-[x] Đã cài đặt AWS CLI trên máy
-[x] Node.js phiên bản 18 trở lên
+- Tài khoản AWS với quyền admin
+- Đã cài đặt AWS CLI trên máy
+- Node.js phiên bản 18 trở lên
 
 ### Thiết lập các dịch vụ AWS
 1. **S3 Bucket**: Tên `securevaults` với CORS được bật
