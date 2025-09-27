@@ -65,7 +65,7 @@ Tạo đường link để tải file lên
 ```
 ├── lambda-functions/          (Các hàm xử lý)
 │   └── upload-handler/
-│       ├── index.mjs          (Code chính)
+│       ├── app.js          (Code chính)
 │       └── package.json       (Cấu hình)
 ├── infrastructure/            (Cấu hình hạ tầng)
 │   ├── s3-bucket-policy.json  (Quyền S3)
