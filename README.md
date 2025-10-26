@@ -4,6 +4,24 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+## Quick start
+
+From the project root run:
+
+```
+npm install
+npm start
+```
+
+To run tests once:
+
+```
+npm test -- --watchAll=false
+```
+
+This project contains a small `SimpleFrontend` component (counter + file input) used by `src/App.js`.
+
+
 In the project directory, you can run:
 
 ### `npm start`
