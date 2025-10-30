@@ -1,88 +1,75 @@
-# Getting Started with Create React App
+🗄️ Secure File Vault (AWS Version)
+📖 Giới thiệu
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Secure File Vault là một ứng dụng web giúp người dùng lưu trữ và quản lý dữ liệu cá nhân một cách an toàn trên nền tảng AWS Cloud.
+Hệ thống sử dụng các dịch vụ AWS như Cognito, Lambda, API Gateway, và DynamoDB để đảm bảo tính bảo mật, khả năng mở rộng và độ tin cậy cao.
 
-## Available Scripts
+🎯 Mục tiêu dự án
 
-## Quick start
+Cung cấp nơi lưu trữ dữ liệu cá nhân (hình ảnh, tài liệu, v.v.) an toàn cho người dùng.
 
-From the project root run:
+Áp dụng các dịch vụ bảo mật AWS trong thực tế.
 
-```
-npm install
-npm start
-```
+Mô phỏng kiến trúc serverless để xử lý dữ liệu người dùng nhanh chóng và tiết kiệm chi phí.
 
-To run tests once:
+⚙️ Kiến trúc hệ thống
 
-```
-npm test -- --watchAll=false
-```
+Luồng hoạt động tổng quát:
 
-This project contains a small `SimpleFrontend` component (counter + file input) used by `src/App.js`.
+👤 Người dùng đăng ký hoặc đăng nhập tài khoản qua AWS Cognito → hệ thống cấp JWT Token để xác thực.
 
+📤 Khi người dùng tải lên tệp (file), dữ liệu được gửi qua API Gateway.
 
-In the project directory, you can run:
+⚙️ AWS Lambda nhận request từ API Gateway, xử lý logic (phân loại, xác minh, gán metadata…).
 
-### `npm start`
+🧾 Thông tin tệp được lưu vào DynamoDB, còn nội dung tệp được lưu trên Amazon S3.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🔐 Toàn bộ quá trình được bảo vệ bằng IAM Role & Cognito Authentication.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🧱 Công nghệ sử dụng
+Thành phần	Mô tả
+AWS Cognito	Xác thực & quản lý người dùng
+API Gateway	Cổng trung gian nhận & phân phối request
+AWS Lambda	Xử lý logic backend theo mô hình serverless
+Amazon S3	Lưu trữ file người dùng
+DynamoDB	Lưu metadata và thông tin file
+React / Flask (tùy chọn)	Giao diện hoặc backend hỗ trợ
+🧩 Tính năng chính
 
-### `npm test`
+🔑 Đăng ký / đăng nhập tài khoản người dùng
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+☁️ Upload & quản lý tệp trên cloud
 
-### `npm run build`
+🔐 Xác thực & phân quyền bảo mật tự động bằng Cognito
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+🧾 Lưu metadata và nhật ký hoạt động
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+🚀 Kiến trúc serverless, không cần quản lý máy chủ
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🧠 Bài học & Kinh nghiệm đạt được
 
-### `npm run eject`
+Hiểu rõ luồng xác thực và ủy quyền trên AWS Cognito
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Cấu hình API Gateway + Lambda để xây dựng ứng dụng serverless thực tế
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Thực hành lưu trữ dữ liệu phi cấu trúc trên S3 và metadata trên DynamoDB
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Quản lý IAM Role và quyền truy cập dịch vụ AWS đúng chuẩn bảo mật
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+📂 Cấu trúc thư mục (ví dụ)
+SecureFileVault/
+├── frontend/          # Mã nguồn React hoặc giao diện web
+├── lambda/            # Mã nguồn hàm AWS Lambda
+├── dynamodb/          # Cấu hình DynamoDB table
+├── docs/              # Tài liệu hướng dẫn và sơ đồ kiến trúc
+└── README.md          # Tệp mô tả dự án
 
-## Learn More
+🚀 Hướng phát triển tiếp theo
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Bổ sung mã hóa dữ liệu đầu cuối (end-to-end encryption)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Thêm chức năng chia sẻ tệp có kiểm soát
 
-### Code Splitting
+Xây dựng bảng điều khiển (dashboard) cho quản trị viên
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Tích hợp thêm CloudWatch để giám sát hoạt động hệ thống
